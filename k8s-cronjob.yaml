@@ -1,21 +1,24 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: actions-runner-offline-delete
+  name: runner-delete
 spec:
-  schedule: "* * * * *"
+  schedule: "30 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: delete-runners
-            image: delete-runners:0.0.1
+            image: runner-delete:0.0.1
             env:
-            - name: RUNNER_TOKEN
-              value: "XXXX"
+            - name: GHUB_PAT
+              valueFrom:
+                secretKeyRef:
+                  name: github
+                  key: pat
             - name: ORG_NAME
-              value: "YYYY"
+              value: "xxxx"
             imagePullPolicy: IfNotPresent
             command:
             - /bin/sh
