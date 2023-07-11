@@ -14,5 +14,5 @@ for runner in r:
     if runner['status'] == "offline":
         print("Removing "+str(runner['id']))
         d = requests.delete('https://api.github.com/orgs/'+ORG_NAME+'/actions/runners/'+str(runner['id']),headers=headers)
-        if str(d.status_code) == "204":
+        if d.status_code == 204:
             print("Runner successfully deleted.")
