@@ -11,6 +11,11 @@ spec:
           containers:
           - name: delete-runners
             image: delete-runners:0.0.1
+            env:
+            - name: RUNNER_TOKEN
+              value: "XXXX"
+            - name: ORG_NAME
+              value: "YYYY"
             imagePullPolicy: IfNotPresent
             command:
             - /bin/sh
