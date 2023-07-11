@@ -1,11 +1,12 @@
 import requests
 import json
+import os
 
-RUNNER_TOKEN="xxxxx"
-ORG_NAME="yyyy"
+GHUB_PAT = os.environ['GHUB_PAT']
+ORG_NAME = os.environ['ORG_NAME']
 
 headers = { "Accept":"application/vnd.github+json",
-            "Authorization":"Bearer "+RUNNER_TOKEN,
+            "Authorization":"Bearer "+GHUB_PAT,
             "X-GitHub-Api-Version":"2022-11-28"
            }
 
