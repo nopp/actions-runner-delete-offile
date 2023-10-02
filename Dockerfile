@@ -8,5 +8,3 @@ WORKDIR /app
 ADD delete-runners.py /app/delete-runners.py
 ADD requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
-
-# CMD ["python", "delete-runners.py"]
